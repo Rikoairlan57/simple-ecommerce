@@ -2,6 +2,21 @@
 
 // helper function 
 
+function set_message($msg) {
+    if(!empty($msg)) {
+        $_SESSION['message'] = $msg;
+    } else {
+        $msg = "";
+    }
+}
+
+function display_message() {
+    if(isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+}
+
 function redirect($location) {
     header("Location: $location");
 }
@@ -140,6 +155,28 @@ function get_products_in_shop_page() {
         echo $product;
 
         
+    }
+}
+
+
+function login_user() {
+
+    if(isset($_POST['submit'])) {
+        $username = escape_string($_POST['username']);
+        $password = escape_string($_POST['password']);
+
+        $query = query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}' ");
+        confirm($query);
+
+        if(mysqli_num_rows($query) == 0 ) {
+
+            set_message("your password or username wrong");
+            redirect("login.php");
+        }
+        else {
+            set_message("welcome to admin {$username}");
+            redirect("admin");
+        }
     }
 }
 
