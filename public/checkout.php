@@ -1,17 +1,27 @@
 <?php require_once("../resources/config.php");  ?>
 <?php require_once("cart.php");  ?>
-
 <?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
 
 
+<?php 
+
+if(isset($_SESSION['product_1'])) {
+
+    echo $_SESSION['product_1'];
+}
+
+
+?>
+
     <!-- Page Content -->
-    <div class="container">
+     <!-- Page Content -->
+     <div class="container">
 
 
 <!-- /.row --> 
 
 <div class="row">
-    <h4 class="text_center bg-danger"><?php display_message(); ?></h4>
+    <h4 class="text-center bg-danger"><?php display_message(); ?></h4>
     <h1>Checkout</h1>
 
 <form action="">
@@ -41,8 +51,8 @@
 <table class="table table-bordered" cellspacing="0">
 
 <tr class="cart-subtotal">
-    <th>Items:</th>
-        <td><span class="amount">4</span></td>
+<th>Items:</th>
+<td><span class="amount">4</span></td>
 </tr>
 <tr class="shipping">
 <th>Shipping and Handling</th>

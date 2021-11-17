@@ -22,6 +22,11 @@
                 </div>
 
                 <div class="row">
+                    <!-- <h1>
+                        <?php echo $_SESSION['product_1']; ?>
+
+                    </h1> -->
+
 
                 <?php get_products(); ?>
 
