@@ -64,7 +64,7 @@ function get_products() {
                         <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
                         </h4>
                         <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a class="btn btn-primary" target=_blank href="item.php?id={$row['product_id']}">Add to Cart</a>  
+                        <a class="btn btn-primary" target=_blank href="cart.php?add={$row['product_id']}">Add to Cart</a>  
                     </div>   
                     
                 </div>
