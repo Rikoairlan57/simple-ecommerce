@@ -1,23 +1,24 @@
-<?php require_once("../resources/config.php");  ?>
+<?php require_once("../resources/config.php"); ?>
 
-<?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
-
+<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
     <!-- Page Content -->
 <div class="container">
 
        <!-- Side Navigation -->
-<?php include(TEMPLATE_FRONT . DS . "side_nav.php"); ?>
 
-<?php
+              <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
 
-$query = query("SELECT * FROM products WHERE product_id =" . escape_string($_GET['id']) . "");
+<?php 
+
+
+$query = query(" SELECT * FROM products WHERE product_id = " . escape_string($_GET['id']) . " ");
 confirm($query);
 
-while ($row = fetch_array($query)):
+while($row = fetch_array($query)):
 
 
+ ?>
 
-?>
 
 <div class="col-md-9">
 
@@ -26,7 +27,10 @@ while ($row = fetch_array($query)):
 <div class="row">
 
     <div class="col-md-7">
-       <img class="img-responsive" src="<?php echo $row['product_image']; ?>" alt="">
+
+
+       <img class="img-responsive" src="../resources/<?php  echo display_image($row['product_image']); ?>" alt="">
+
 
     </div>
 
@@ -38,7 +42,7 @@ while ($row = fetch_array($query)):
     <div class="caption-full">
         <h4><a href="#"><?php echo $row['product_title']; ?></a> </h4>
         <hr>
-        <h4 class=""><?php echo "&#36;  " . $row['product_price']; ?></h4>
+        <h4 class=""><?php echo "&#36;" . $row['product_price']; ?></h4>
 
     <div class="ratings">
      
@@ -57,7 +61,7 @@ while ($row = fetch_array($query)):
    
     <form action="">
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="ADD TO CART">
+           <a href="../resources/cart.php?add=<?php echo $row['product_id']; ?>" class="btn btn-primary">ADD</a>
         </div>
     </form>
 
@@ -92,9 +96,8 @@ while ($row = fetch_array($query)):
     <div role="tabpanel" class="tab-pane active" id="home">
 
 <p></p>
-           
-   <p><?php echo $row['product_description']; ?></p>
 
+<p><?php echo $row['product_description']; ?></p>
     </div>
     <div role="tabpanel" class="tab-pane" id="profile">
 
@@ -195,16 +198,15 @@ while ($row = fetch_array($query)):
 
 </div><!--Row for Tab Panel-->
 
+
+
+
+</div><!-- col-md-9 ends here -->
+
+
 <?php endwhile; ?>
-
-
-
-
-</div>
 
 </div>
     <!-- /.container -->
 
-   
-    <?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
-
+<?php include(TEMPLATE_FRONT . DS . "footer.php") ?>

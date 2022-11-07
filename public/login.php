@@ -1,7 +1,6 @@
-<?php require_once("../resources/config.php");  ?>
+<?php require_once("../resources/config.php"); ?>
 
-<?php include(TEMPLATE_FRONT . DS . "header.php"); ?>
-
+<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
 
     <!-- Page Content -->
     <div class="container">
@@ -11,13 +10,14 @@
             <h2 class="text-center bg-warning"><?php display_message(); ?></h2>
         <div class="col-sm-4 col-sm-offset-5">         
             <form class="" action="" method="post" enctype="multipart/form-data">
+                    
+                    <?php login_user(); ?>
 
-            <?php login_user(); ?>
                 <div class="form-group"><label for="">
                     username<input type="text" name="username" class="form-control"></label>
                 </div>
                  <div class="form-group"><label for="password">
-                    Password<input type="text" name="password" class="form-control"></label>
+                    Password<input type="password" name="password" class="form-control"></label>
                 </div>
 
                 <div class="form-group">
@@ -32,5 +32,4 @@
 
         </div>
 
-
-<?php include(TEMPLATE_FRONT . DS . "footer.php"); ?>
+   <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
